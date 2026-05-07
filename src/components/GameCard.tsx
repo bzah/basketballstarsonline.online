@@ -27,14 +27,14 @@ export function GameCard({ game }: { game: Game }) {
           width={400} height={300}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
-        <div className="absolute left-2 top-2 rounded-full bg-background/85 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-primary backdrop-blur">
+        <div className="absolute left-1.5 top-1.5 rounded-full bg-background/85 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wide text-primary backdrop-blur sm:left-2 sm:top-2 sm:px-2 sm:text-[10px]">
           {game.category}
         </div>
-        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background via-background/70 to-transparent p-3 pt-8">
-          <h3 className="font-display text-lg leading-tight text-foreground drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">{game.title}</h3>
+        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background via-background/80 to-transparent p-2 pt-6 sm:p-3 sm:pt-8">
+          <h3 className="font-display text-sm leading-tight text-foreground drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] sm:text-base md:text-lg">{game.title}</h3>
         </div>
       </div>
-      <p className="line-clamp-2 px-3 py-2 text-xs text-muted-foreground">{game.shortDescription}</p>
+      <p className="line-clamp-2 px-2.5 py-2 text-[11px] text-muted-foreground sm:px-3 sm:text-xs">{game.shortDescription}</p>
     </Link>
   );
 }
