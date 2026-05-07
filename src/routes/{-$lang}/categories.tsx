@@ -7,8 +7,8 @@ export const Route = createFileRoute("/{-$lang}/categories")({
   head: ({ params }) => {
     const m = pageMeta({
       lang: (params.lang ?? "en") as any, path: "/categories",
-      title: "Basketball Game Categories — Browse by Style",
-      description: "Browse basketball games by category — shooting, multiplayer, simulator, classic legends and arcade hits.",
+      title: "Basketball Game Categories 🏀 Shooting, 1v1, Simulator & Arcade",
+      description: "Find your basketball game by category: 1v1 multiplayer legends, shooting challenges, realistic simulators, classic legends & arcade hits. All free, all unblocked.",
     });
     return { meta: m.meta, links: m.links };
   },

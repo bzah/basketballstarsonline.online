@@ -9,8 +9,8 @@ export const Route = createFileRoute("/{-$lang}/category/$slug")({
     if (!cat) return { meta: [{ title: "Category" }] };
     const m = pageMeta({
       lang: (params.lang ?? "en") as any, path: `/category/${cat.slug}`,
-      title: `${cat.name} Basketball Games — Free Online`,
-      description: `${cat.description} Play free, unblocked, instantly.`,
+      title: `${cat.name} Basketball Games 🏀 Free Online & Unblocked (2026)`,
+      description: `▶ Play the best ${cat.name.toLowerCase()} basketball games free online. ${cat.description} No download, no signup, works on mobile, tablet & desktop.`,
     });
     return { meta: m.meta, links: m.links };
   },

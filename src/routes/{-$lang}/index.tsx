@@ -13,8 +13,8 @@ export const Route = createFileRoute("/{-$lang}/")({
     const lang = (params.lang ?? "en") as any;
     const m = pageMeta({
       lang, path: "/",
-      title: "Basketball Legends Unblocked — Play Basketball Stars Online Free",
-      description: "Play Basketball Stars, Basketball Legends Unblocked and 22+ free basketball games online. No download. Mobile-friendly. Instant play.",
+      title: "Basketball Stars Unblocked 🏀 Play Basketball Legends Free Online (2026)",
+      description: "▶ Play Basketball Stars, Basketball Legends Unblocked & 22+ free basketball games online. No download, no signup, 1v1 & 2-player on mobile + PC. Updated 2026.",
     });
     const faq = [
       { q: "Is Basketball Stars free?", a: "Yes, Basketball Stars and every game on our portal is 100% free to play." },
