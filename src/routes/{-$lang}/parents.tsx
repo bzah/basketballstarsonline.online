@@ -3,12 +3,12 @@ import { STATIC_PAGES, StaticPage } from "@/components/StaticPage";
 import { pageMeta } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 
-const data = STATIC_PAGES.about;
+const data = STATIC_PAGES.parents;
 
-export const Route = createFileRoute("/{-$lang}/about")({
+export const Route = createFileRoute("/{-$lang}/parents")({
   head: ({ params }) => {
     const m = pageMeta({
-      lang: (params.lang ?? "en") as any, path: "/about",
+      lang: (params.lang ?? "en") as any, path: "/parents",
       title: `${data.title} — ${SITE.name}`,
       description: data.body.slice(0, 155),
     });
