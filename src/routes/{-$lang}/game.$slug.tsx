@@ -17,6 +17,7 @@ export const Route = createFileRoute("/{-$lang}/game/$slug")({
       lang, path: `/game/${game.slug}`,
       title: `${game.title} — Play Free Online | Basketball Stars Online`,
       description: game.shortDescription,
+      image: `${SITE.url}/covers/${game.slug}.jpg`,
     });
     const faq = [
       { q: `Is ${game.title} free?`, a: `Yes — ${game.title} is 100% free to play, no download required.` },
