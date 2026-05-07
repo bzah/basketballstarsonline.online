@@ -47,32 +47,32 @@ function HomePage() {
   const [fs, setFs] = useState(false);
 
   return (
-    <div className="container mx-auto px-4 py-6">
+    <div className="container mx-auto px-3 py-4 sm:px-4 sm:py-6">
       {/* Hero */}
-      <section className="overflow-hidden rounded-3xl bg-gradient-hero p-6 shadow-glow md:p-10">
-        <div className="grid gap-6 md:grid-cols-[1fr,1.4fr] md:items-center">
-          <div className="text-primary-foreground">
-            <span className="inline-block rounded-full bg-background/30 px-3 py-1 text-xs font-bold uppercase tracking-widest backdrop-blur">
+      <section className="overflow-hidden rounded-2xl bg-gradient-hero p-4 shadow-glow sm:rounded-3xl sm:p-6 md:p-10">
+        <div className="grid gap-5 md:grid-cols-[1fr,1.4fr] md:items-center md:gap-6">
+          <div className="text-white">
+            <span className="inline-block rounded-full bg-black/30 px-3 py-1 text-[10px] font-bold uppercase tracking-widest backdrop-blur sm:text-xs">
               {t(lang, "hero.tag")}
             </span>
-            <h1 className="mt-4 font-display text-5xl leading-none md:text-7xl">
+            <h1 className="mt-3 font-display text-4xl leading-[0.95] sm:text-5xl md:text-7xl">
               {t(lang, "hero.title")}
             </h1>
-            <p className="mt-4 max-w-md text-lg opacity-95">{t(lang, "hero.subtitle")}</p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <a href="#play" className="inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 font-bold text-background transition-transform hover:scale-105">
-                <Play className="h-5 w-5" /> {t(lang, "cta.play")}
+            <p className="mt-3 max-w-md text-base text-white/95 sm:mt-4 sm:text-lg">{t(lang, "hero.subtitle")}</p>
+            <div className="mt-5 flex flex-wrap gap-2 sm:mt-6 sm:gap-3">
+              <a href="#play" className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-bold text-neutral-900 transition-transform hover:scale-105 sm:px-6 sm:text-base">
+                <Play className="h-4 w-4 sm:h-5 sm:w-5" /> {t(lang, "cta.play")}
               </a>
-              <Link to="/games" params={{ lang: lang === "en" ? undefined : lang } as any} className="inline-flex items-center gap-2 rounded-full border-2 border-foreground/40 bg-background/10 px-6 py-3 font-bold text-primary-foreground backdrop-blur hover:bg-background/20">
+              <Link to="/games" params={{ lang: lang === "en" ? undefined : lang } as any} className="inline-flex items-center gap-2 rounded-full border-2 border-white/60 bg-white/10 px-5 py-3 text-sm font-bold text-white backdrop-blur hover:bg-white/20 sm:px-6 sm:text-base">
                 {t(lang, "nav.games")}
               </Link>
             </div>
           </div>
-          <div id="play" className="overflow-hidden rounded-2xl border-4 border-background/30 bg-background shadow-card">
-            <div className="flex items-center justify-between bg-background/90 px-3 py-2">
-              <div className="font-display text-sm tracking-wider text-primary">▶ {FEATURED_GAME.title}</div>
-              <button onClick={() => setFs(!fs)} className="flex items-center gap-1 rounded-full bg-secondary px-3 py-1 text-xs font-bold text-foreground hover:bg-primary hover:text-primary-foreground">
-                {fs ? <Minimize2 className="h-3 w-3" /> : <Maximize2 className="h-3 w-3" />} {fs ? t(lang, "cta.exitFullscreen") : t(lang, "cta.fullscreen")}
+          <div id="play" className="overflow-hidden rounded-xl border-2 border-black/30 bg-background shadow-card sm:rounded-2xl sm:border-4">
+            <div className="flex items-center justify-between gap-2 bg-background/90 px-3 py-2">
+              <div className="truncate font-display text-xs tracking-wider text-primary sm:text-sm">▶ {FEATURED_GAME.title}</div>
+              <button onClick={() => setFs(!fs)} className="flex shrink-0 items-center gap-1 rounded-full bg-secondary px-2.5 py-1 text-[11px] font-bold text-foreground hover:bg-primary hover:text-primary-foreground sm:px-3 sm:text-xs">
+                {fs ? <Minimize2 className="h-3 w-3" /> : <Maximize2 className="h-3 w-3" />} <span className="hidden sm:inline">{fs ? t(lang, "cta.exitFullscreen") : t(lang, "cta.fullscreen")}</span>
               </button>
             </div>
             <div className={fs ? "fixed inset-0 z-50 bg-black" : "aspect-video"}>
@@ -101,9 +101,9 @@ function HomePage() {
 
       {/* All games grid */}
       <section className="mt-8">
-        <h2 className="font-display text-3xl text-foreground md:text-4xl">{t(lang, "section.all")}</h2>
-        <p className="mt-1 text-sm text-muted-foreground">{GAMES.length} basketball games — free, unblocked, online.</p>
-        <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+        <h2 className="font-display text-2xl text-foreground sm:text-3xl md:text-4xl">{t(lang, "section.all")}</h2>
+        <p className="mt-1 text-xs text-muted-foreground sm:text-sm">{GAMES.length} basketball games — free, unblocked, online.</p>
+        <div className="mt-5 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
           {GAMES.map((g) => <GameCard key={g.id} game={g} />)}
         </div>
       </section>
