@@ -102,7 +102,7 @@ function GamePage() {
           </button>
         </div>
         <div className={fs ? "fixed inset-0 z-50 bg-black" : "aspect-video"}>
-          <iframe src={`/games/${game.slug}/`} title={game.title} className="h-full w-full" allow="autoplay; fullscreen; gamepad; accelerometer; gyroscope" allowFullScreen />
+          <iframe src={`/games/${game.slug}/index.html`} title={game.title} className="h-full w-full" allow="autoplay; fullscreen; gamepad; accelerometer; gyroscope" allowFullScreen />
           {fs && <button onClick={() => setFs(false)} className="absolute right-4 top-4 z-50 rounded-full bg-primary p-2 text-primary-foreground"><Minimize2 className="h-5 w-5" /></button>}
         </div>
       </div>
