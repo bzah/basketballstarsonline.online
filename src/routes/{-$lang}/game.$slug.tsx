@@ -28,10 +28,10 @@ export const Route = createFileRoute("/{-$lang}/game/$slug")({
       "browser basketball", "1v1 basketball", "basketball arcade",
       ...game.tags,
     ].join(", ");
-    const longDesc = `Play ${game.title} free online — ${game.shortDescription} Enjoy ${game.title} unblocked at school, on mobile, tablet or desktop with no download, no signup and no ads between rounds. Part of the Basketball Stars Online ${cat.name.toLowerCase()} collection.`;
+    const longDesc = `▶ Play ${game.title} free online & unblocked — ${game.shortDescription} No download, no signup, works on mobile, tablet & desktop. Updated 2026.`;
     const m = pageMeta({
       lang, path: `/game/${game.slug}`,
-      title: `${game.title} — Play Free Online Unblocked | Basketball Stars Online`,
+      title: `${game.title} 🏀 Play Free Online Unblocked (2026) | ${SITE.name}`,
       description: longDesc.slice(0, 300),
       image: `${SITE.url}/covers/${game.slug}.jpg`,
     });

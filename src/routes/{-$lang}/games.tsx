@@ -9,8 +9,8 @@ export const Route = createFileRoute("/{-$lang}/games")({
   head: ({ params }) => {
     const m = pageMeta({
       lang: (params.lang ?? "en") as any, path: "/games",
-      title: "All Basketball Games — Free Online Basketball Games",
-      description: "Browse all 22+ free basketball games. Basketball Stars, Basketball Legends Unblocked, Basket Random and more — instant play.",
+      title: "All Basketball Games 🏀 22+ Free Unblocked Basketball Games Online",
+      description: "Browse 22+ free basketball games unblocked: Basketball Stars, Basketball Legends, Basket Random, Dunk Hoop & more. Instant play, no download, mobile-ready.",
     });
     return { meta: m.meta, links: m.links };
   },
