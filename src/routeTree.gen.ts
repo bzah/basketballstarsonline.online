@@ -9,50 +9,172 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as Char123LangChar125RouteRouteImport } from './routes/{-$lang}/route'
 import { Route as Char123LangChar125IndexRouteImport } from './routes/{-$lang}/index'
+import { Route as Char123LangChar125GamesRouteImport } from './routes/{-$lang}/games'
+import { Route as Char123LangChar125CategoriesRouteImport } from './routes/{-$lang}/categories'
+import { Route as Char123LangChar125GameSlugRouteImport } from './routes/{-$lang}/game.$slug'
+import { Route as Char123LangChar125CategorySlugRouteImport } from './routes/{-$lang}/category.$slug'
 
-const Char123LangChar125IndexRoute = Char123LangChar125IndexRouteImport.update({
-  id: '/{-$lang}/',
-  path: '/{-$lang}/',
+const Char123LangChar125RouteRoute = Char123LangChar125RouteRouteImport.update({
+  id: '/{-$lang}',
+  path: '/{-$lang}',
   getParentRoute: () => rootRouteImport,
 } as any)
+const Char123LangChar125IndexRoute = Char123LangChar125IndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => Char123LangChar125RouteRoute,
+} as any)
+const Char123LangChar125GamesRoute = Char123LangChar125GamesRouteImport.update({
+  id: '/games',
+  path: '/games',
+  getParentRoute: () => Char123LangChar125RouteRoute,
+} as any)
+const Char123LangChar125CategoriesRoute =
+  Char123LangChar125CategoriesRouteImport.update({
+    id: '/categories',
+    path: '/categories',
+    getParentRoute: () => Char123LangChar125RouteRoute,
+  } as any)
+const Char123LangChar125GameSlugRoute =
+  Char123LangChar125GameSlugRouteImport.update({
+    id: '/game/$slug',
+    path: '/game/$slug',
+    getParentRoute: () => Char123LangChar125RouteRoute,
+  } as any)
+const Char123LangChar125CategorySlugRoute =
+  Char123LangChar125CategorySlugRouteImport.update({
+    id: '/category/$slug',
+    path: '/category/$slug',
+    getParentRoute: () => Char123LangChar125RouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
+  '/{-$lang}': typeof Char123LangChar125RouteRouteWithChildren
+  '/{-$lang}/categories': typeof Char123LangChar125CategoriesRoute
+  '/{-$lang}/games': typeof Char123LangChar125GamesRoute
   '/{-$lang}/': typeof Char123LangChar125IndexRoute
+  '/{-$lang}/category/$slug': typeof Char123LangChar125CategorySlugRoute
+  '/{-$lang}/game/$slug': typeof Char123LangChar125GameSlugRoute
 }
 export interface FileRoutesByTo {
+  '/{-$lang}/categories': typeof Char123LangChar125CategoriesRoute
+  '/{-$lang}/games': typeof Char123LangChar125GamesRoute
   '/{-$lang}': typeof Char123LangChar125IndexRoute
+  '/{-$lang}/category/$slug': typeof Char123LangChar125CategorySlugRoute
+  '/{-$lang}/game/$slug': typeof Char123LangChar125GameSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
+  '/{-$lang}': typeof Char123LangChar125RouteRouteWithChildren
+  '/{-$lang}/categories': typeof Char123LangChar125CategoriesRoute
+  '/{-$lang}/games': typeof Char123LangChar125GamesRoute
   '/{-$lang}/': typeof Char123LangChar125IndexRoute
+  '/{-$lang}/category/$slug': typeof Char123LangChar125CategorySlugRoute
+  '/{-$lang}/game/$slug': typeof Char123LangChar125GameSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/{-$lang}/'
+  fullPaths:
+    | '/{-$lang}'
+    | '/{-$lang}/categories'
+    | '/{-$lang}/games'
+    | '/{-$lang}/'
+    | '/{-$lang}/category/$slug'
+    | '/{-$lang}/game/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/{-$lang}'
-  id: '__root__' | '/{-$lang}/'
+  to:
+    | '/{-$lang}/categories'
+    | '/{-$lang}/games'
+    | '/{-$lang}'
+    | '/{-$lang}/category/$slug'
+    | '/{-$lang}/game/$slug'
+  id:
+    | '__root__'
+    | '/{-$lang}'
+    | '/{-$lang}/categories'
+    | '/{-$lang}/games'
+    | '/{-$lang}/'
+    | '/{-$lang}/category/$slug'
+    | '/{-$lang}/game/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  Char123LangChar125IndexRoute: typeof Char123LangChar125IndexRoute
+  Char123LangChar125RouteRoute: typeof Char123LangChar125RouteRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/{-$lang}': {
+      id: '/{-$lang}'
+      path: '/{-$lang}'
+      fullPath: '/{-$lang}'
+      preLoaderRoute: typeof Char123LangChar125RouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/{-$lang}/': {
       id: '/{-$lang}/'
-      path: '/{-$lang}'
+      path: '/'
       fullPath: '/{-$lang}/'
       preLoaderRoute: typeof Char123LangChar125IndexRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof Char123LangChar125RouteRoute
+    }
+    '/{-$lang}/games': {
+      id: '/{-$lang}/games'
+      path: '/games'
+      fullPath: '/{-$lang}/games'
+      preLoaderRoute: typeof Char123LangChar125GamesRouteImport
+      parentRoute: typeof Char123LangChar125RouteRoute
+    }
+    '/{-$lang}/categories': {
+      id: '/{-$lang}/categories'
+      path: '/categories'
+      fullPath: '/{-$lang}/categories'
+      preLoaderRoute: typeof Char123LangChar125CategoriesRouteImport
+      parentRoute: typeof Char123LangChar125RouteRoute
+    }
+    '/{-$lang}/game/$slug': {
+      id: '/{-$lang}/game/$slug'
+      path: '/game/$slug'
+      fullPath: '/{-$lang}/game/$slug'
+      preLoaderRoute: typeof Char123LangChar125GameSlugRouteImport
+      parentRoute: typeof Char123LangChar125RouteRoute
+    }
+    '/{-$lang}/category/$slug': {
+      id: '/{-$lang}/category/$slug'
+      path: '/category/$slug'
+      fullPath: '/{-$lang}/category/$slug'
+      preLoaderRoute: typeof Char123LangChar125CategorySlugRouteImport
+      parentRoute: typeof Char123LangChar125RouteRoute
     }
   }
 }
 
+interface Char123LangChar125RouteRouteChildren {
+  Char123LangChar125CategoriesRoute: typeof Char123LangChar125CategoriesRoute
+  Char123LangChar125GamesRoute: typeof Char123LangChar125GamesRoute
+  Char123LangChar125IndexRoute: typeof Char123LangChar125IndexRoute
+  Char123LangChar125CategorySlugRoute: typeof Char123LangChar125CategorySlugRoute
+  Char123LangChar125GameSlugRoute: typeof Char123LangChar125GameSlugRoute
+}
+
+const Char123LangChar125RouteRouteChildren: Char123LangChar125RouteRouteChildren =
+  {
+    Char123LangChar125CategoriesRoute: Char123LangChar125CategoriesRoute,
+    Char123LangChar125GamesRoute: Char123LangChar125GamesRoute,
+    Char123LangChar125IndexRoute: Char123LangChar125IndexRoute,
+    Char123LangChar125CategorySlugRoute: Char123LangChar125CategorySlugRoute,
+    Char123LangChar125GameSlugRoute: Char123LangChar125GameSlugRoute,
+  }
+
+const Char123LangChar125RouteRouteWithChildren =
+  Char123LangChar125RouteRoute._addFileChildren(
+    Char123LangChar125RouteRouteChildren,
+  )
+
 const rootRouteChildren: RootRouteChildren = {
-  Char123LangChar125IndexRoute: Char123LangChar125IndexRoute,
+  Char123LangChar125RouteRoute: Char123LangChar125RouteRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
