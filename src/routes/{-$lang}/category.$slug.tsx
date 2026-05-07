@@ -1,5 +1,5 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
-import { CATEGORIES, gamesByCategory, type Category } from "@/data/games";
+import { CATEGORIES, gamesByCategory, type Category, type Game } from "@/data/games";
 import { GameCard } from "@/components/GameCard";
 import { pageMeta } from "@/lib/seo";
 
@@ -26,7 +26,7 @@ export const Route = createFileRoute("/{-$lang}/category/$slug")({
         <h1 className="font-display text-5xl text-foreground">{cat.name} Basketball Games</h1>
         <p className="mt-2 max-w-2xl text-muted-foreground">{cat.description}</p>
         <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-          {games.map((g) => <GameCard key={g.id} game={g} />)}
+          {games.map((g: Game) => <GameCard key={g.id} game={g} />)}
         </div>
       </div>
     );
