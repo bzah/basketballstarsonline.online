@@ -49,7 +49,7 @@ export function gameSoftwareApp(game: Game) {
     operatingSystem: "Web Browser", description: game.description,
     aggregateRating: { "@type": "AggregateRating", ratingValue: "4.7", ratingCount: "1284" },
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-    screenshot: SITE.ogImage,
+    screenshot: `${SITE.url}/covers/${game.slug}.jpg`,
   };
 }
 
