@@ -13,16 +13,39 @@ export const Route = createFileRoute("/{-$lang}/game/$slug")({
     const lang = (params.lang ?? "en") as any;
     if (!game) return { meta: [{ title: "Game not found" }] };
     const cat = CATEGORIES.find((c) => c.slug === game.category)!;
+    const kw = [
+      game.title.toLowerCase(),
+      `${game.title.toLowerCase()} unblocked`,
+      `${game.title.toLowerCase()} online`,
+      `play ${game.title.toLowerCase()}`,
+      `${game.title.toLowerCase()} free`,
+      `${game.title.toLowerCase()} no download`,
+      `${game.title.toLowerCase()} 2 player`,
+      `${cat.name.toLowerCase()} basketball games`,
+      "basketball games", "basketball stars", "basketball legends",
+      "free online basketball", "unblocked basketball games",
+      "basketball games for school", "html5 basketball games",
+      "browser basketball", "1v1 basketball", "basketball arcade",
+      ...game.tags,
+    ].join(", ");
+    const longDesc = `Play ${game.title} free online — ${game.shortDescription} Enjoy ${game.title} unblocked at school, on mobile, tablet or desktop with no download, no signup and no ads between rounds. Part of the Basketball Stars Online ${cat.name.toLowerCase()} collection.`;
     const m = pageMeta({
       lang, path: `/game/${game.slug}`,
-      title: `${game.title} — Play Free Online | Basketball Stars Online`,
-      description: game.shortDescription,
+      title: `${game.title} — Play Free Online Unblocked | Basketball Stars Online`,
+      description: longDesc.slice(0, 300),
       image: `${SITE.url}/covers/${game.slug}.jpg`,
     });
+    m.meta.push({ name: "keywords", content: kw });
+    m.meta.push({ name: "author", content: SITE.name });
+    m.meta.push({ name: "article:section", content: cat.name });
+    m.meta.push({ property: "article:tag", content: kw });
     const faq = [
-      { q: `Is ${game.title} free?`, a: `Yes — ${game.title} is 100% free to play, no download required.` },
-      { q: `Can I play ${game.title} on mobile?`, a: `Yes, ${game.title} works on phones, tablets and desktop browsers.` },
-      { q: `Is ${game.title} unblocked?`, a: `Yes — ${game.title} is unblocked and ready to play anywhere.` },
+      { q: `Is ${game.title} free to play?`, a: `Yes — ${game.title} is 100% free to play online with no download, no installation and no signup required. Just click play and enjoy ${game.title} unblocked anywhere.` },
+      { q: `Can I play ${game.title} on mobile?`, a: `Yes, ${game.title} is fully mobile-responsive and works on iPhone, Android phones, tablets, Chromebooks and desktop browsers including Chrome, Firefox, Safari and Edge.` },
+      { q: `Is ${game.title} unblocked at school?`, a: `Yes — ${game.title} is unblocked at most schools, colleges and offices. The HTML5 build runs directly in your browser so no firewall plugin is needed.` },
+      { q: `What kind of game is ${game.title}?`, a: `${game.title} is a ${cat.name.toLowerCase()} basketball game. ${cat.description}` },
+      { q: `Do I need to download ${game.title}?`, a: `No — ${game.title} is a browser-based HTML5 game. There is nothing to download, install or update. Bookmark this page to come back any time.` },
+      { q: `Is ${game.title} safe for kids?`, a: `Yes, ${game.title} is family-friendly with no inappropriate content, no chat with strangers and no in-app purchases. Safe for classrooms and home.` },
     ];
     return {
       meta: m.meta, links: m.links,
