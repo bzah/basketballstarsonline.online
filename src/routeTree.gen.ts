@@ -9,27 +9,51 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as Char123LangChar125IndexRouteImport } from './routes/{-$lang}/index'
 
-export interface FileRoutesByFullPath {}
-export interface FileRoutesByTo {}
+const Char123LangChar125IndexRoute = Char123LangChar125IndexRouteImport.update({
+  id: '/{-$lang}/',
+  path: '/{-$lang}/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+
+export interface FileRoutesByFullPath {
+  '/{-$lang}/': typeof Char123LangChar125IndexRoute
+}
+export interface FileRoutesByTo {
+  '/{-$lang}': typeof Char123LangChar125IndexRoute
+}
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
+  '/{-$lang}/': typeof Char123LangChar125IndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: never
+  fullPaths: '/{-$lang}/'
   fileRoutesByTo: FileRoutesByTo
-  to: never
-  id: '__root__'
+  to: '/{-$lang}'
+  id: '__root__' | '/{-$lang}/'
   fileRoutesById: FileRoutesById
 }
-export interface RootRouteChildren {}
-
-declare module '@tanstack/react-router' {
-  interface FileRoutesByPath {}
+export interface RootRouteChildren {
+  Char123LangChar125IndexRoute: typeof Char123LangChar125IndexRoute
 }
 
-const rootRouteChildren: RootRouteChildren = {}
+declare module '@tanstack/react-router' {
+  interface FileRoutesByPath {
+    '/{-$lang}/': {
+      id: '/{-$lang}/'
+      path: '/{-$lang}'
+      fullPath: '/{-$lang}/'
+      preLoaderRoute: typeof Char123LangChar125IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+  }
+}
+
+const rootRouteChildren: RootRouteChildren = {
+  Char123LangChar125IndexRoute: Char123LangChar125IndexRoute,
+}
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
