@@ -13,16 +13,39 @@ export const Route = createFileRoute("/{-$lang}/game/$slug")({
     const lang = (params.lang ?? "en") as any;
     if (!game) return { meta: [{ title: "Game not found" }] };
     const cat = CATEGORIES.find((c) => c.slug === game.category)!;
+    const kw = [
+      game.title.toLowerCase(),
+      `${game.title.toLowerCase()} unblocked`,
+      `${game.title.toLowerCase()} online`,
+      `play ${game.title.toLowerCase()}`,
+      `${game.title.toLowerCase()} free`,
+      `${game.title.toLowerCase()} no download`,
+      `${game.title.toLowerCase()} 2 player`,
+      `${cat.name.toLowerCase()} basketball games`,
+      "basketball games", "basketball stars", "basketball legends",
+      "free online basketball", "unblocked basketball games",
+      "basketball games for school", "html5 basketball games",
+      "browser basketball", "1v1 basketball", "basketball arcade",
+      ...game.tags,
+    ].join(", ");
+    const longDesc = `Play ${game.title} free online — ${game.shortDescription} Enjoy ${game.title} unblocked at school, on mobile, tablet or desktop with no download, no signup and no ads between rounds. Part of the Basketball Stars Online ${cat.name.toLowerCase()} collection.`;
     const m = pageMeta({
       lang, path: `/game/${game.slug}`,
-      title: `${game.title} — Play Free Online | Basketball Stars Online`,
-      description: game.shortDescription,
+      title: `${game.title} — Play Free Online Unblocked | Basketball Stars Online`,
+      description: longDesc.slice(0, 300),
       image: `${SITE.url}/covers/${game.slug}.jpg`,
     });
+    m.meta.push({ name: "keywords", content: kw });
+    m.meta.push({ name: "author", content: SITE.name });
+    m.meta.push({ name: "article:section", content: cat.name });
+    m.meta.push({ property: "article:tag", content: kw });
     const faq = [
-      { q: `Is ${game.title} free?`, a: `Yes — ${game.title} is 100% free to play, no download required.` },
-      { q: `Can I play ${game.title} on mobile?`, a: `Yes, ${game.title} works on phones, tablets and desktop browsers.` },
-      { q: `Is ${game.title} unblocked?`, a: `Yes — ${game.title} is unblocked and ready to play anywhere.` },
+      { q: `Is ${game.title} free to play?`, a: `Yes — ${game.title} is 100% free to play online with no download, no installation and no signup required. Just click play and enjoy ${game.title} unblocked anywhere.` },
+      { q: `Can I play ${game.title} on mobile?`, a: `Yes, ${game.title} is fully mobile-responsive and works on iPhone, Android phones, tablets, Chromebooks and desktop browsers including Chrome, Firefox, Safari and Edge.` },
+      { q: `Is ${game.title} unblocked at school?`, a: `Yes — ${game.title} is unblocked at most schools, colleges and offices. The HTML5 build runs directly in your browser so no firewall plugin is needed.` },
+      { q: `What kind of game is ${game.title}?`, a: `${game.title} is a ${cat.name.toLowerCase()} basketball game. ${cat.description}` },
+      { q: `Do I need to download ${game.title}?`, a: `No — ${game.title} is a browser-based HTML5 game. There is nothing to download, install or update. Bookmark this page to come back any time.` },
+      { q: `Is ${game.title} safe for kids?`, a: `Yes, ${game.title} is family-friendly with no inappropriate content, no chat with strangers and no in-app purchases. Safe for classrooms and home.` },
     ];
     return {
       meta: m.meta, links: m.links,
@@ -127,8 +150,41 @@ function GamePage() {
         </div>
       </section>
 
+      <section className="mt-10 grid gap-6 md:grid-cols-2">
+        <article className="rounded-2xl border border-border bg-card/60 p-6 backdrop-blur">
+          <h2 className="font-display text-2xl text-foreground">Why Play {game.title}?</h2>
+          <p className="mt-3 leading-relaxed text-muted-foreground">
+            {game.title} stands out among free online basketball games because it combines the instant accessibility of an HTML5 browser game with the depth of a real {cat.name.toLowerCase()} basketball experience. Whether you have five minutes between classes or a full afternoon to climb the leaderboards, {game.title} unblocked delivers fast loading, smooth controls and addictive scoring loops that keep you coming back for one more match.
+          </p>
+          <p className="mt-3 leading-relaxed text-muted-foreground">
+            As part of the Basketball Stars Online catalog, {game.title} sits alongside the best basketball legends, basketball stars and basketball shooting games on the web. No download, no signup — just pure b-ball action in your browser.
+          </p>
+        </article>
+        <article className="rounded-2xl border border-border bg-card/60 p-6 backdrop-blur">
+          <h2 className="font-display text-2xl text-foreground">Tips & Tricks for {game.title}</h2>
+          <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+            <li>🎯 Wait for the perfect release window — green timing always beats yellow.</li>
+            <li>🔥 Chain consecutive perfect shots to trigger combo multipliers.</li>
+            <li>🛡️ On defense, anticipate your opponent's jump instead of chasing the ball.</li>
+            <li>⚡ Save your special move for clutch moments late in the match.</li>
+            <li>📱 Use landscape mode on mobile for the best {game.title} experience.</li>
+            <li>🏆 Replay daily to climb our community {cat.name.toLowerCase()} basketball leaderboard.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section className="mt-10 rounded-2xl border border-border bg-card/40 p-6">
+        <h2 className="font-display text-2xl text-foreground">Tags</h2>
+        <div className="mt-3 flex flex-wrap gap-2">
+          {[...game.tags, `${cat.name} basketball`, "unblocked", "free", "no download", "browser game", "HTML5"].map((t) => (
+            <span key={t} className="rounded-full border border-border bg-background/60 px-3 py-1 text-xs text-muted-foreground">#{t}</span>
+          ))}
+        </div>
+      </section>
+
       <section className="mt-10">
         <h2 className="font-display text-2xl text-foreground sm:text-3xl">Related Basketball Games</h2>
+        <p className="mt-2 text-sm text-muted-foreground">More handpicked {cat.name.toLowerCase()} basketball games you'll love if you enjoyed {game.title}.</p>
         <div className="mt-4 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-5">
           {related.map((g) => <GameCard key={g.id} game={g} />)}
         </div>
