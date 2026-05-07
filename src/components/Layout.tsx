@@ -2,7 +2,7 @@ import { Link, useParams } from "@tanstack/react-router";
 import { LANGS, type Lang, t } from "@/lib/i18n";
 import { SITE } from "@/lib/site";
 import { CATEGORIES } from "@/data/games";
-import { Search, Globe } from "lucide-react";
+import { Search, Globe, Menu, X } from "lucide-react";
 import { useState } from "react";
 
 export function useLang(): Lang {
@@ -19,11 +19,12 @@ export function localePath(lang: Lang, path: string): string {
 export function Header() {
   const lang = useLang();
   const [q, setQ] = useState("");
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur-lg">
-      <div className="container mx-auto flex items-center gap-4 px-4 py-3">
+      <div className="container mx-auto flex items-center gap-3 px-4 py-3">
         <Link to="/" params={{ lang: lang === "en" ? undefined : lang }} className="flex items-center gap-2 group">
-          <img src="/logo.png" alt="Basketball Stars Online — basketball legends unblocked logo" width={48} height={48} className="h-12 w-12 object-contain drop-shadow-[0_0_12px_rgba(255,106,43,0.6)] transition-transform group-hover:scale-110" />
+          <img src="/logo.png" alt="Basketball Stars Online — basketball legends unblocked logo" width={48} height={48} className="h-11 w-11 object-contain drop-shadow-[0_0_12px_rgba(255,106,43,0.6)] transition-transform group-hover:scale-110" />
           <div className="hidden sm:block">
             <div className="font-display text-xl leading-none tracking-wide text-foreground">{SITE.name}</div>
             <div className="text-[10px] uppercase tracking-[0.2em] text-primary">{t(lang, "hero.tag")}</div>
@@ -43,9 +44,42 @@ export function Header() {
             className="h-10 w-64 rounded-full border border-border bg-secondary/60 pl-10 pr-4 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none"
           />
         </Link>
-        <LangSwitcher current={lang} />
+        <div className="ml-auto flex items-center gap-2 md:ml-0">
+          <LangSwitcher current={lang} />
+          <button
+            onClick={() => setMenuOpen((v) => !v)}
+            aria-label="Toggle menu"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-secondary/60 text-foreground hover:bg-secondary md:hidden"
+          >
+            {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
+      {menuOpen && (
+        <nav className="container mx-auto flex flex-col gap-1 px-4 pb-4 md:hidden">
+          <MobileLink to="/" label={t(lang, "nav.home")} onClick={() => setMenuOpen(false)} />
+          <MobileLink to="/games" label={t(lang, "nav.games")} onClick={() => setMenuOpen(false)} />
+          <MobileLink to="/categories" label={t(lang, "nav.categories")} onClick={() => setMenuOpen(false)} />
+          <MobileLink to="/about" label={t(lang, "nav.about")} onClick={() => setMenuOpen(false)} />
+        </nav>
+      )}
     </header>
+  );
+}
+
+function MobileLink({ to, label, onClick }: { to: string; label: string; onClick: () => void }) {
+  const lang = useLang();
+  return (
+    <Link
+      to={to as any}
+      params={{ lang: lang === "en" ? undefined : lang } as any}
+      onClick={onClick}
+      className="rounded-xl bg-secondary/60 px-4 py-3 text-base font-bold text-foreground hover:bg-secondary"
+      activeProps={{ className: "rounded-xl bg-primary px-4 py-3 text-base font-bold text-primary-foreground" }}
+      activeOptions={{ exact: true }}
+    >
+      {label}
+    </Link>
   );
 }
 
