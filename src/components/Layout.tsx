@@ -23,9 +23,7 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur-lg">
       <div className="container mx-auto flex items-center gap-4 px-4 py-3">
         <Link to="/" params={{ lang: lang === "en" ? undefined : lang }} className="flex items-center gap-2 group">
-          <div className="grid h-10 w-10 place-items-center rounded-full bg-gradient-hero shadow-glow">
-            <span className="font-display text-xl text-primary-foreground">🏀</span>
-          </div>
+          <img src="/logo.png" alt="Basketball Stars Online logo" width={40} height={40} className="h-10 w-10 rounded-full shadow-glow" />
           <div className="hidden sm:block">
             <div className="font-display text-xl leading-none tracking-wide text-foreground">{SITE.name}</div>
             <div className="text-[10px] uppercase tracking-[0.2em] text-primary">{t(lang, "hero.tag")}</div>
