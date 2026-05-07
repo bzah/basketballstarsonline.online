@@ -150,8 +150,41 @@ function GamePage() {
         </div>
       </section>
 
+      <section className="mt-10 grid gap-6 md:grid-cols-2">
+        <article className="rounded-2xl border border-border bg-card/60 p-6 backdrop-blur">
+          <h2 className="font-display text-2xl text-foreground">Why Play {game.title}?</h2>
+          <p className="mt-3 leading-relaxed text-muted-foreground">
+            {game.title} stands out among free online basketball games because it combines the instant accessibility of an HTML5 browser game with the depth of a real {cat.name.toLowerCase()} basketball experience. Whether you have five minutes between classes or a full afternoon to climb the leaderboards, {game.title} unblocked delivers fast loading, smooth controls and addictive scoring loops that keep you coming back for one more match.
+          </p>
+          <p className="mt-3 leading-relaxed text-muted-foreground">
+            As part of the Basketball Stars Online catalog, {game.title} sits alongside the best basketball legends, basketball stars and basketball shooting games on the web. No download, no signup — just pure b-ball action in your browser.
+          </p>
+        </article>
+        <article className="rounded-2xl border border-border bg-card/60 p-6 backdrop-blur">
+          <h2 className="font-display text-2xl text-foreground">Tips & Tricks for {game.title}</h2>
+          <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+            <li>🎯 Wait for the perfect release window — green timing always beats yellow.</li>
+            <li>🔥 Chain consecutive perfect shots to trigger combo multipliers.</li>
+            <li>🛡️ On defense, anticipate your opponent's jump instead of chasing the ball.</li>
+            <li>⚡ Save your special move for clutch moments late in the match.</li>
+            <li>📱 Use landscape mode on mobile for the best {game.title} experience.</li>
+            <li>🏆 Replay daily to climb our community {cat.name.toLowerCase()} basketball leaderboard.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section className="mt-10 rounded-2xl border border-border bg-card/40 p-6">
+        <h2 className="font-display text-2xl text-foreground">Tags</h2>
+        <div className="mt-3 flex flex-wrap gap-2">
+          {[...game.tags, `${cat.name} basketball`, "unblocked", "free", "no download", "browser game", "HTML5"].map((t) => (
+            <span key={t} className="rounded-full border border-border bg-background/60 px-3 py-1 text-xs text-muted-foreground">#{t}</span>
+          ))}
+        </div>
+      </section>
+
       <section className="mt-10">
         <h2 className="font-display text-2xl text-foreground sm:text-3xl">Related Basketball Games</h2>
+        <p className="mt-2 text-sm text-muted-foreground">More handpicked {cat.name.toLowerCase()} basketball games you'll love if you enjoyed {game.title}.</p>
         <div className="mt-4 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-5">
           {related.map((g) => <GameCard key={g.id} game={g} />)}
         </div>
