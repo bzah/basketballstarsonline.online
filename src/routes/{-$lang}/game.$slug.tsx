@@ -128,8 +128,8 @@ function GamePage() {
       </section>
 
       <section className="mt-10">
-        <h2 className="font-display text-3xl text-foreground">Related Basketball Games</h2>
-        <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
+        <h2 className="font-display text-2xl text-foreground sm:text-3xl">Related Basketball Games</h2>
+        <div className="mt-4 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-5">
           {related.map((g) => <GameCard key={g.id} game={g} />)}
         </div>
       </section>
