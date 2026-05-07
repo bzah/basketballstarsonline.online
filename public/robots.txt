@@ -1,4 +1,37 @@
+# Basketball Stars Online — robots.txt
 User-agent: *
 Allow: /
+Disallow: /wp-admin
+Disallow: /wp-login.php
+Disallow: /xmlrpc.php
 
+# Major crawlers — explicit allow
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+Host: https://basketballstarsonline.online
 Sitemap: https://basketballstarsonline.online/sitemap.xml
