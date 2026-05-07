@@ -123,10 +123,10 @@ export function Footer() {
   const lang = useLang();
   const popular = ["basketball-stars", "basketball-legends-2020", "basket-random", "basketball-stars-2026", "basketball-shots-3d", "basketball-legends"];
   return (
-    <footer className="mt-20 border-t border-border bg-background/60">
-      <div className="container mx-auto grid gap-8 px-4 py-12 md:grid-cols-4">
-        <div className="md:col-span-1">
-          <div className="font-display text-2xl text-foreground">{SITE.name}</div>
+    <footer className="mt-16 border-t border-border bg-background/60">
+      <div className="container mx-auto grid gap-6 px-4 py-10 sm:gap-8 sm:py-12 md:grid-cols-2 lg:grid-cols-4">
+        <div className="lg:col-span-1">
+          <div className="font-display text-xl text-foreground sm:text-2xl">{SITE.name}</div>
           <p className="mt-2 text-sm text-muted-foreground">{t(lang, "footer.tagline")}</p>
         </div>
         <div>
