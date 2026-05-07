@@ -101,9 +101,9 @@ function HomePage() {
 
       {/* All games grid */}
       <section className="mt-8">
-        <h2 className="font-display text-3xl text-foreground md:text-4xl">{t(lang, "section.all")}</h2>
-        <p className="mt-1 text-sm text-muted-foreground">{GAMES.length} basketball games — free, unblocked, online.</p>
-        <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+        <h2 className="font-display text-2xl text-foreground sm:text-3xl md:text-4xl">{t(lang, "section.all")}</h2>
+        <p className="mt-1 text-xs text-muted-foreground sm:text-sm">{GAMES.length} basketball games — free, unblocked, online.</p>
+        <div className="mt-5 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
           {GAMES.map((g) => <GameCard key={g.id} game={g} />)}
         </div>
       </section>

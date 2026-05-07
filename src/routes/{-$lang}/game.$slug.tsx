@@ -55,17 +55,17 @@ function GamePage() {
   const cat = CATEGORIES.find((c) => c.slug === game.category)!;
 
   return (
-    <div className="container mx-auto px-4 py-6">
-      <nav className="mb-4 flex items-center gap-2 text-sm text-muted-foreground">
+    <div className="container mx-auto px-3 py-4 sm:px-4 sm:py-6">
+      <nav className="mb-3 flex flex-wrap items-center gap-1.5 text-xs text-muted-foreground sm:text-sm">
         <Link to="/" params={{ lang: lang === "en" ? undefined : lang } as any} className="hover:text-foreground">Home</Link>
         <span>/</span>
         <Link to="/category/$slug" params={{ slug: cat.slug, lang: lang === "en" ? undefined : lang } as any} className="hover:text-foreground">{cat.name}</Link>
         <span>/</span>
-        <span className="text-foreground">{game.title}</span>
+        <span className="truncate text-foreground">{game.title}</span>
       </nav>
 
-      <h1 className="font-display text-4xl text-foreground md:text-6xl">{game.title}</h1>
-      <p className="mt-2 max-w-2xl text-muted-foreground">{game.shortDescription}</p>
+      <h1 className="font-display text-3xl leading-tight text-foreground sm:text-4xl md:text-6xl">{game.title}</h1>
+      <p className="mt-2 max-w-2xl text-sm text-muted-foreground sm:text-base">{game.shortDescription}</p>
 
       <div className="mt-6 overflow-hidden rounded-2xl border border-border bg-background shadow-card">
         <div className="flex items-center justify-between bg-secondary px-4 py-2">
