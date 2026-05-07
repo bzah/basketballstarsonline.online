@@ -34,4 +34,4 @@ User-agent: facebookexternalhit
 Allow: /
 
 Host: https://basketballstarsonline.online
-Sitemap: https://basketballstarsonline.online/sitemap.xml
+Sitemap: https://basketballstarsonline.online/sitemap_index.xml
