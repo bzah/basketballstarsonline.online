@@ -5,7 +5,7 @@ import { GameCard } from "@/components/GameCard";
 import { pageMeta, jsonLd, gameSoftwareApp, videoGame, faqLd, breadcrumbLd } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import { Maximize2, Minimize2 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const Route = createFileRoute("/{-$lang}/game/$slug")({
   head: ({ params }) => {
@@ -76,6 +76,10 @@ function GamePage() {
   const [fs, setFs] = useState(false);
   const related = relatedGames(game.slug, 10);
   const cat = CATEGORIES.find((c) => c.slug === game.category)!;
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+  }, [game.slug]);
 
   return (
     <div className="container mx-auto px-3 py-4 sm:px-4 sm:py-6">
