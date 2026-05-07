@@ -9,61 +9,345 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
+import { Route as Char123LangChar125RouteRouteImport } from './routes/{-$lang}/route'
+import { Route as Char123LangChar125IndexRouteImport } from './routes/{-$lang}/index'
+import { Route as Char123LangChar125TermsRouteImport } from './routes/{-$lang}/terms'
+import { Route as Char123LangChar125PrivacyRouteImport } from './routes/{-$lang}/privacy'
+import { Route as Char123LangChar125ParentsRouteImport } from './routes/{-$lang}/parents'
+import { Route as Char123LangChar125LegalRouteImport } from './routes/{-$lang}/legal'
+import { Route as Char123LangChar125GamesRouteImport } from './routes/{-$lang}/games'
+import { Route as Char123LangChar125DmcaRouteImport } from './routes/{-$lang}/dmca'
+import { Route as Char123LangChar125CookiesRouteImport } from './routes/{-$lang}/cookies'
+import { Route as Char123LangChar125ContactRouteImport } from './routes/{-$lang}/contact'
+import { Route as Char123LangChar125CategoriesRouteImport } from './routes/{-$lang}/categories'
+import { Route as Char123LangChar125AboutRouteImport } from './routes/{-$lang}/about'
+import { Route as Char123LangChar125GameSlugRouteImport } from './routes/{-$lang}/game.$slug'
+import { Route as Char123LangChar125CategorySlugRouteImport } from './routes/{-$lang}/category.$slug'
 
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const Char123LangChar125RouteRoute = Char123LangChar125RouteRouteImport.update({
+  id: '/{-$lang}',
+  path: '/{-$lang}',
   getParentRoute: () => rootRouteImport,
 } as any)
+const Char123LangChar125IndexRoute = Char123LangChar125IndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => Char123LangChar125RouteRoute,
+} as any)
+const Char123LangChar125TermsRoute = Char123LangChar125TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => Char123LangChar125RouteRoute,
+} as any)
+const Char123LangChar125PrivacyRoute =
+  Char123LangChar125PrivacyRouteImport.update({
+    id: '/privacy',
+    path: '/privacy',
+    getParentRoute: () => Char123LangChar125RouteRoute,
+  } as any)
+const Char123LangChar125ParentsRoute =
+  Char123LangChar125ParentsRouteImport.update({
+    id: '/parents',
+    path: '/parents',
+    getParentRoute: () => Char123LangChar125RouteRoute,
+  } as any)
+const Char123LangChar125LegalRoute = Char123LangChar125LegalRouteImport.update({
+  id: '/legal',
+  path: '/legal',
+  getParentRoute: () => Char123LangChar125RouteRoute,
+} as any)
+const Char123LangChar125GamesRoute = Char123LangChar125GamesRouteImport.update({
+  id: '/games',
+  path: '/games',
+  getParentRoute: () => Char123LangChar125RouteRoute,
+} as any)
+const Char123LangChar125DmcaRoute = Char123LangChar125DmcaRouteImport.update({
+  id: '/dmca',
+  path: '/dmca',
+  getParentRoute: () => Char123LangChar125RouteRoute,
+} as any)
+const Char123LangChar125CookiesRoute =
+  Char123LangChar125CookiesRouteImport.update({
+    id: '/cookies',
+    path: '/cookies',
+    getParentRoute: () => Char123LangChar125RouteRoute,
+  } as any)
+const Char123LangChar125ContactRoute =
+  Char123LangChar125ContactRouteImport.update({
+    id: '/contact',
+    path: '/contact',
+    getParentRoute: () => Char123LangChar125RouteRoute,
+  } as any)
+const Char123LangChar125CategoriesRoute =
+  Char123LangChar125CategoriesRouteImport.update({
+    id: '/categories',
+    path: '/categories',
+    getParentRoute: () => Char123LangChar125RouteRoute,
+  } as any)
+const Char123LangChar125AboutRoute = Char123LangChar125AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => Char123LangChar125RouteRoute,
+} as any)
+const Char123LangChar125GameSlugRoute =
+  Char123LangChar125GameSlugRouteImport.update({
+    id: '/game/$slug',
+    path: '/game/$slug',
+    getParentRoute: () => Char123LangChar125RouteRoute,
+  } as any)
+const Char123LangChar125CategorySlugRoute =
+  Char123LangChar125CategorySlugRouteImport.update({
+    id: '/category/$slug',
+    path: '/category/$slug',
+    getParentRoute: () => Char123LangChar125RouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
+  '/{-$lang}': typeof Char123LangChar125RouteRouteWithChildren
+  '/{-$lang}/about': typeof Char123LangChar125AboutRoute
+  '/{-$lang}/categories': typeof Char123LangChar125CategoriesRoute
+  '/{-$lang}/contact': typeof Char123LangChar125ContactRoute
+  '/{-$lang}/cookies': typeof Char123LangChar125CookiesRoute
+  '/{-$lang}/dmca': typeof Char123LangChar125DmcaRoute
+  '/{-$lang}/games': typeof Char123LangChar125GamesRoute
+  '/{-$lang}/legal': typeof Char123LangChar125LegalRoute
+  '/{-$lang}/parents': typeof Char123LangChar125ParentsRoute
+  '/{-$lang}/privacy': typeof Char123LangChar125PrivacyRoute
+  '/{-$lang}/terms': typeof Char123LangChar125TermsRoute
+  '/{-$lang}/': typeof Char123LangChar125IndexRoute
+  '/{-$lang}/category/$slug': typeof Char123LangChar125CategorySlugRoute
+  '/{-$lang}/game/$slug': typeof Char123LangChar125GameSlugRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
+  '/{-$lang}/about': typeof Char123LangChar125AboutRoute
+  '/{-$lang}/categories': typeof Char123LangChar125CategoriesRoute
+  '/{-$lang}/contact': typeof Char123LangChar125ContactRoute
+  '/{-$lang}/cookies': typeof Char123LangChar125CookiesRoute
+  '/{-$lang}/dmca': typeof Char123LangChar125DmcaRoute
+  '/{-$lang}/games': typeof Char123LangChar125GamesRoute
+  '/{-$lang}/legal': typeof Char123LangChar125LegalRoute
+  '/{-$lang}/parents': typeof Char123LangChar125ParentsRoute
+  '/{-$lang}/privacy': typeof Char123LangChar125PrivacyRoute
+  '/{-$lang}/terms': typeof Char123LangChar125TermsRoute
+  '/{-$lang}': typeof Char123LangChar125IndexRoute
+  '/{-$lang}/category/$slug': typeof Char123LangChar125CategorySlugRoute
+  '/{-$lang}/game/$slug': typeof Char123LangChar125GameSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
+  '/{-$lang}': typeof Char123LangChar125RouteRouteWithChildren
+  '/{-$lang}/about': typeof Char123LangChar125AboutRoute
+  '/{-$lang}/categories': typeof Char123LangChar125CategoriesRoute
+  '/{-$lang}/contact': typeof Char123LangChar125ContactRoute
+  '/{-$lang}/cookies': typeof Char123LangChar125CookiesRoute
+  '/{-$lang}/dmca': typeof Char123LangChar125DmcaRoute
+  '/{-$lang}/games': typeof Char123LangChar125GamesRoute
+  '/{-$lang}/legal': typeof Char123LangChar125LegalRoute
+  '/{-$lang}/parents': typeof Char123LangChar125ParentsRoute
+  '/{-$lang}/privacy': typeof Char123LangChar125PrivacyRoute
+  '/{-$lang}/terms': typeof Char123LangChar125TermsRoute
+  '/{-$lang}/': typeof Char123LangChar125IndexRoute
+  '/{-$lang}/category/$slug': typeof Char123LangChar125CategorySlugRoute
+  '/{-$lang}/game/$slug': typeof Char123LangChar125GameSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/{-$lang}'
+    | '/{-$lang}/about'
+    | '/{-$lang}/categories'
+    | '/{-$lang}/contact'
+    | '/{-$lang}/cookies'
+    | '/{-$lang}/dmca'
+    | '/{-$lang}/games'
+    | '/{-$lang}/legal'
+    | '/{-$lang}/parents'
+    | '/{-$lang}/privacy'
+    | '/{-$lang}/terms'
+    | '/{-$lang}/'
+    | '/{-$lang}/category/$slug'
+    | '/{-$lang}/game/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/{-$lang}/about'
+    | '/{-$lang}/categories'
+    | '/{-$lang}/contact'
+    | '/{-$lang}/cookies'
+    | '/{-$lang}/dmca'
+    | '/{-$lang}/games'
+    | '/{-$lang}/legal'
+    | '/{-$lang}/parents'
+    | '/{-$lang}/privacy'
+    | '/{-$lang}/terms'
+    | '/{-$lang}'
+    | '/{-$lang}/category/$slug'
+    | '/{-$lang}/game/$slug'
+  id:
+    | '__root__'
+    | '/{-$lang}'
+    | '/{-$lang}/about'
+    | '/{-$lang}/categories'
+    | '/{-$lang}/contact'
+    | '/{-$lang}/cookies'
+    | '/{-$lang}/dmca'
+    | '/{-$lang}/games'
+    | '/{-$lang}/legal'
+    | '/{-$lang}/parents'
+    | '/{-$lang}/privacy'
+    | '/{-$lang}/terms'
+    | '/{-$lang}/'
+    | '/{-$lang}/category/$slug'
+    | '/{-$lang}/game/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
+  Char123LangChar125RouteRoute: typeof Char123LangChar125RouteRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/{-$lang}': {
+      id: '/{-$lang}'
+      path: '/{-$lang}'
+      fullPath: '/{-$lang}'
+      preLoaderRoute: typeof Char123LangChar125RouteRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/{-$lang}/': {
+      id: '/{-$lang}/'
+      path: '/'
+      fullPath: '/{-$lang}/'
+      preLoaderRoute: typeof Char123LangChar125IndexRouteImport
+      parentRoute: typeof Char123LangChar125RouteRoute
+    }
+    '/{-$lang}/terms': {
+      id: '/{-$lang}/terms'
+      path: '/terms'
+      fullPath: '/{-$lang}/terms'
+      preLoaderRoute: typeof Char123LangChar125TermsRouteImport
+      parentRoute: typeof Char123LangChar125RouteRoute
+    }
+    '/{-$lang}/privacy': {
+      id: '/{-$lang}/privacy'
+      path: '/privacy'
+      fullPath: '/{-$lang}/privacy'
+      preLoaderRoute: typeof Char123LangChar125PrivacyRouteImport
+      parentRoute: typeof Char123LangChar125RouteRoute
+    }
+    '/{-$lang}/parents': {
+      id: '/{-$lang}/parents'
+      path: '/parents'
+      fullPath: '/{-$lang}/parents'
+      preLoaderRoute: typeof Char123LangChar125ParentsRouteImport
+      parentRoute: typeof Char123LangChar125RouteRoute
+    }
+    '/{-$lang}/legal': {
+      id: '/{-$lang}/legal'
+      path: '/legal'
+      fullPath: '/{-$lang}/legal'
+      preLoaderRoute: typeof Char123LangChar125LegalRouteImport
+      parentRoute: typeof Char123LangChar125RouteRoute
+    }
+    '/{-$lang}/games': {
+      id: '/{-$lang}/games'
+      path: '/games'
+      fullPath: '/{-$lang}/games'
+      preLoaderRoute: typeof Char123LangChar125GamesRouteImport
+      parentRoute: typeof Char123LangChar125RouteRoute
+    }
+    '/{-$lang}/dmca': {
+      id: '/{-$lang}/dmca'
+      path: '/dmca'
+      fullPath: '/{-$lang}/dmca'
+      preLoaderRoute: typeof Char123LangChar125DmcaRouteImport
+      parentRoute: typeof Char123LangChar125RouteRoute
+    }
+    '/{-$lang}/cookies': {
+      id: '/{-$lang}/cookies'
+      path: '/cookies'
+      fullPath: '/{-$lang}/cookies'
+      preLoaderRoute: typeof Char123LangChar125CookiesRouteImport
+      parentRoute: typeof Char123LangChar125RouteRoute
+    }
+    '/{-$lang}/contact': {
+      id: '/{-$lang}/contact'
+      path: '/contact'
+      fullPath: '/{-$lang}/contact'
+      preLoaderRoute: typeof Char123LangChar125ContactRouteImport
+      parentRoute: typeof Char123LangChar125RouteRoute
+    }
+    '/{-$lang}/categories': {
+      id: '/{-$lang}/categories'
+      path: '/categories'
+      fullPath: '/{-$lang}/categories'
+      preLoaderRoute: typeof Char123LangChar125CategoriesRouteImport
+      parentRoute: typeof Char123LangChar125RouteRoute
+    }
+    '/{-$lang}/about': {
+      id: '/{-$lang}/about'
+      path: '/about'
+      fullPath: '/{-$lang}/about'
+      preLoaderRoute: typeof Char123LangChar125AboutRouteImport
+      parentRoute: typeof Char123LangChar125RouteRoute
+    }
+    '/{-$lang}/game/$slug': {
+      id: '/{-$lang}/game/$slug'
+      path: '/game/$slug'
+      fullPath: '/{-$lang}/game/$slug'
+      preLoaderRoute: typeof Char123LangChar125GameSlugRouteImport
+      parentRoute: typeof Char123LangChar125RouteRoute
+    }
+    '/{-$lang}/category/$slug': {
+      id: '/{-$lang}/category/$slug'
+      path: '/category/$slug'
+      fullPath: '/{-$lang}/category/$slug'
+      preLoaderRoute: typeof Char123LangChar125CategorySlugRouteImport
+      parentRoute: typeof Char123LangChar125RouteRoute
     }
   }
 }
 
+interface Char123LangChar125RouteRouteChildren {
+  Char123LangChar125AboutRoute: typeof Char123LangChar125AboutRoute
+  Char123LangChar125CategoriesRoute: typeof Char123LangChar125CategoriesRoute
+  Char123LangChar125ContactRoute: typeof Char123LangChar125ContactRoute
+  Char123LangChar125CookiesRoute: typeof Char123LangChar125CookiesRoute
+  Char123LangChar125DmcaRoute: typeof Char123LangChar125DmcaRoute
+  Char123LangChar125GamesRoute: typeof Char123LangChar125GamesRoute
+  Char123LangChar125LegalRoute: typeof Char123LangChar125LegalRoute
+  Char123LangChar125ParentsRoute: typeof Char123LangChar125ParentsRoute
+  Char123LangChar125PrivacyRoute: typeof Char123LangChar125PrivacyRoute
+  Char123LangChar125TermsRoute: typeof Char123LangChar125TermsRoute
+  Char123LangChar125IndexRoute: typeof Char123LangChar125IndexRoute
+  Char123LangChar125CategorySlugRoute: typeof Char123LangChar125CategorySlugRoute
+  Char123LangChar125GameSlugRoute: typeof Char123LangChar125GameSlugRoute
+}
+
+const Char123LangChar125RouteRouteChildren: Char123LangChar125RouteRouteChildren =
+  {
+    Char123LangChar125AboutRoute: Char123LangChar125AboutRoute,
+    Char123LangChar125CategoriesRoute: Char123LangChar125CategoriesRoute,
+    Char123LangChar125ContactRoute: Char123LangChar125ContactRoute,
+    Char123LangChar125CookiesRoute: Char123LangChar125CookiesRoute,
+    Char123LangChar125DmcaRoute: Char123LangChar125DmcaRoute,
+    Char123LangChar125GamesRoute: Char123LangChar125GamesRoute,
+    Char123LangChar125LegalRoute: Char123LangChar125LegalRoute,
+    Char123LangChar125ParentsRoute: Char123LangChar125ParentsRoute,
+    Char123LangChar125PrivacyRoute: Char123LangChar125PrivacyRoute,
+    Char123LangChar125TermsRoute: Char123LangChar125TermsRoute,
+    Char123LangChar125IndexRoute: Char123LangChar125IndexRoute,
+    Char123LangChar125CategorySlugRoute: Char123LangChar125CategorySlugRoute,
+    Char123LangChar125GameSlugRoute: Char123LangChar125GameSlugRoute,
+  }
+
+const Char123LangChar125RouteRouteWithChildren =
+  Char123LangChar125RouteRoute._addFileChildren(
+    Char123LangChar125RouteRouteChildren,
+  )
+
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
+  Char123LangChar125RouteRoute: Char123LangChar125RouteRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
