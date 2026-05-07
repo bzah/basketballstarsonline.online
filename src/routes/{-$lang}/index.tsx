@@ -76,7 +76,7 @@ function HomePage() {
               </button>
             </div>
             <div className={fs ? "fixed inset-0 z-50 bg-black" : "aspect-video"}>
-              <iframe src={`/embeds/${FEATURED_GAME.slug}.html`} title={FEATURED_GAME.title} className="h-full w-full" allow="autoplay; fullscreen; gamepad" allowFullScreen />
+              <iframe src={`/games/${FEATURED_GAME.slug}/`} title={FEATURED_GAME.title} className="h-full w-full" allow="autoplay; fullscreen; gamepad; accelerometer; gyroscope" allowFullScreen />
               {fs && (
                 <button onClick={() => setFs(false)} className="absolute right-4 top-4 z-50 rounded-full bg-primary p-2 text-primary-foreground">
                   <Minimize2 className="h-5 w-5" />
