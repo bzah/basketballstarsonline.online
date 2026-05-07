@@ -13,6 +13,7 @@ import { Route as Char123LangChar125RouteRouteImport } from './routes/{-$lang}/r
 import { Route as Char123LangChar125IndexRouteImport } from './routes/{-$lang}/index'
 import { Route as Char123LangChar125GamesRouteImport } from './routes/{-$lang}/games'
 import { Route as Char123LangChar125CategoriesRouteImport } from './routes/{-$lang}/categories'
+import { Route as Char123LangChar125AboutRouteImport } from './routes/{-$lang}/about'
 import { Route as Char123LangChar125GameSlugRouteImport } from './routes/{-$lang}/game.$slug'
 import { Route as Char123LangChar125CategorySlugRouteImport } from './routes/{-$lang}/category.$slug'
 
@@ -37,6 +38,11 @@ const Char123LangChar125CategoriesRoute =
     path: '/categories',
     getParentRoute: () => Char123LangChar125RouteRoute,
   } as any)
+const Char123LangChar125AboutRoute = Char123LangChar125AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => Char123LangChar125RouteRoute,
+} as any)
 const Char123LangChar125GameSlugRoute =
   Char123LangChar125GameSlugRouteImport.update({
     id: '/game/$slug',
@@ -52,6 +58,7 @@ const Char123LangChar125CategorySlugRoute =
 
 export interface FileRoutesByFullPath {
   '/{-$lang}': typeof Char123LangChar125RouteRouteWithChildren
+  '/{-$lang}/about': typeof Char123LangChar125AboutRoute
   '/{-$lang}/categories': typeof Char123LangChar125CategoriesRoute
   '/{-$lang}/games': typeof Char123LangChar125GamesRoute
   '/{-$lang}/': typeof Char123LangChar125IndexRoute
@@ -59,6 +66,7 @@ export interface FileRoutesByFullPath {
   '/{-$lang}/game/$slug': typeof Char123LangChar125GameSlugRoute
 }
 export interface FileRoutesByTo {
+  '/{-$lang}/about': typeof Char123LangChar125AboutRoute
   '/{-$lang}/categories': typeof Char123LangChar125CategoriesRoute
   '/{-$lang}/games': typeof Char123LangChar125GamesRoute
   '/{-$lang}': typeof Char123LangChar125IndexRoute
@@ -68,6 +76,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/{-$lang}': typeof Char123LangChar125RouteRouteWithChildren
+  '/{-$lang}/about': typeof Char123LangChar125AboutRoute
   '/{-$lang}/categories': typeof Char123LangChar125CategoriesRoute
   '/{-$lang}/games': typeof Char123LangChar125GamesRoute
   '/{-$lang}/': typeof Char123LangChar125IndexRoute
@@ -78,6 +87,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/{-$lang}'
+    | '/{-$lang}/about'
     | '/{-$lang}/categories'
     | '/{-$lang}/games'
     | '/{-$lang}/'
@@ -85,6 +95,7 @@ export interface FileRouteTypes {
     | '/{-$lang}/game/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
+    | '/{-$lang}/about'
     | '/{-$lang}/categories'
     | '/{-$lang}/games'
     | '/{-$lang}'
@@ -93,6 +104,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/{-$lang}'
+    | '/{-$lang}/about'
     | '/{-$lang}/categories'
     | '/{-$lang}/games'
     | '/{-$lang}/'
@@ -134,6 +146,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char123LangChar125CategoriesRouteImport
       parentRoute: typeof Char123LangChar125RouteRoute
     }
+    '/{-$lang}/about': {
+      id: '/{-$lang}/about'
+      path: '/about'
+      fullPath: '/{-$lang}/about'
+      preLoaderRoute: typeof Char123LangChar125AboutRouteImport
+      parentRoute: typeof Char123LangChar125RouteRoute
+    }
     '/{-$lang}/game/$slug': {
       id: '/{-$lang}/game/$slug'
       path: '/game/$slug'
@@ -152,6 +171,7 @@ declare module '@tanstack/react-router' {
 }
 
 interface Char123LangChar125RouteRouteChildren {
+  Char123LangChar125AboutRoute: typeof Char123LangChar125AboutRoute
   Char123LangChar125CategoriesRoute: typeof Char123LangChar125CategoriesRoute
   Char123LangChar125GamesRoute: typeof Char123LangChar125GamesRoute
   Char123LangChar125IndexRoute: typeof Char123LangChar125IndexRoute
@@ -161,6 +181,7 @@ interface Char123LangChar125RouteRouteChildren {
 
 const Char123LangChar125RouteRouteChildren: Char123LangChar125RouteRouteChildren =
   {
+    Char123LangChar125AboutRoute: Char123LangChar125AboutRoute,
     Char123LangChar125CategoriesRoute: Char123LangChar125CategoriesRoute,
     Char123LangChar125GamesRoute: Char123LangChar125GamesRoute,
     Char123LangChar125IndexRoute: Char123LangChar125IndexRoute,
@@ -179,3 +200,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
