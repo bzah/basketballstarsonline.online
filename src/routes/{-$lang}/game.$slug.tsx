@@ -84,14 +84,14 @@ function GamePage() {
         <article className="rounded-2xl border border-border bg-card/60 p-6 backdrop-blur md:p-8">
           <h2 className="font-display text-3xl text-foreground">About {game.title}</h2>
           <div className="mt-4 space-y-4 leading-relaxed text-muted-foreground">
-            {game.description.split("\n\n").map((p, i) => <p key={i}>{p}</p>)}
+            {game.description.split("\n\n").map((p: string, i: number) => <p key={i}>{p}</p>)}
           </div>
         </article>
         <aside className="space-y-6">
           <div className="rounded-2xl border border-primary/30 bg-card p-6">
             <h3 className="font-display text-xl text-primary">How to Play</h3>
             <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-              {game.howToPlay.map((s, i) => (
+              {game.howToPlay.map((s: string, i: number) => (
                 <li key={i} className="flex gap-2"><span className="font-bold text-primary">{i + 1}.</span><span>{s}</span></li>
               ))}
             </ul>
@@ -99,7 +99,7 @@ function GamePage() {
           <div className="rounded-2xl border border-accent/30 bg-card p-6">
             <h3 className="font-display text-xl text-accent">Game Features</h3>
             <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-              {game.features.map((s, i) => (
+              {game.features.map((s: string, i: number) => (
                 <li key={i} className="flex gap-2"><span className="text-accent">★</span><span>{s}</span></li>
               ))}
             </ul>
